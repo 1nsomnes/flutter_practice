@@ -7,4 +7,14 @@ class ThemeProvider extends ChangeNotifier {
   ThemeData get themeData => _themeData;
 
   bool get isDarkMode => _themeData == darkMode;
+
+  set themeData(ThemeData themeData) {
+    _themeData = themeData;
+    notifyListeners();
+  }
+
+  void toggleTheme() {
+    _themeData = isDarkMode ? lightMode : darkMode;
+    notifyListeners();
+  }
 }
